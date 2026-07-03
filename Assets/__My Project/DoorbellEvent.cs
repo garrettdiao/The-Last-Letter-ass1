@@ -27,7 +27,40 @@ public class DoorbellEvent : MonoBehaviour
     public Transform player;
     public float interactDistance = 5f;
 
+    [Header("Door Auto Open")]
+    public Transform doorPivot;
+    public float doorOpenAngle = -90f;
+    public float doorOpenSpeed = 120f;
+
     private bool hasTriggered = false;
+    private bool openDoor = false;
+    private Quaternion doorClosedRotation;
+    private Quaternion doorOpenRotation;
+
+    void Start()
+    {
+        if (doorPivot != null)
+        {
+            doorClosedRotation = doorPivot.rotation;
+            doorOpenRotation = Quaternion.Euler(
+                doorPivot.eulerAngles.x,
+                doorPivot.eulerAngles.y + doorOpenAngle,
+                doorPivot.eulerAngles.z
+            );
+        }
+    }
+
+    void Update()
+    {
+        if (openDoor && doorPivot != null)
+        {
+            doorPivot.rotation = Quaternion.RotateTowards(
+                doorPivot.rotation,
+                doorOpenRotation,
+                doorOpenSpeed * Time.deltaTime
+            );
+        }
+    }
 
     void OnMouseDown()
     {
@@ -54,51 +87,41 @@ public class DoorbellEvent : MonoBehaviour
 
     IEnumerator PlayDoorbellSequence()
     {
-        // Doorbell rings 3 times
         for (int i = 0; i < 3; i++)
         {
             sfxSource.PlayOneShot(doorbellSound);
             yield return new WaitForSeconds(1.2f);
         }
 
-        // Female voice 1
         voiceSource.clip = femaleDoorbell1;
         voiceSource.Play();
         yield return new WaitWhile(() => voiceSource.isPlaying);
 
-        // Male voice 1
         voiceSource.clip = maleDoorbell1;
         voiceSource.Play();
         yield return new WaitWhile(() => voiceSource.isPlaying);
 
-        // Female voice 2
         voiceSource.clip = femaleDoorbell2;
         voiceSource.Play();
         yield return new WaitWhile(() => voiceSource.isPlaying);
 
-        // Scream
         sfxSource.PlayOneShot(screamSound);
         yield return new WaitForSeconds(0.8f);
 
-        // Glass break
         sfxSource.PlayOneShot(glassBreakSound);
         yield return new WaitForSeconds(1f);
 
-        // Stop ambience
         if (environmentSource != null)
-        {
             environmentSource.Stop();
-        }
 
-        // Start suspense music
         PlaySuspenseMusic();
 
-        // Male voice 2
         voiceSource.clip = maleDoorbell2;
         voiceSource.Play();
-    }
+        yield return new WaitWhile(() => voiceSource.isPlaying);
 
-    // ---------- Music Functions ----------
+        openDoor = true;
+    }
 
     public void PlaySuspenseMusic()
     {
@@ -113,9 +136,7 @@ public class DoorbellEvent : MonoBehaviour
     public void StopSuspenseMusic()
     {
         if (musicSource != null)
-        {
             musicSource.Stop();
-        }
     }
 
     public void ChangeMusic(AudioClip newMusic, bool loop = true)
