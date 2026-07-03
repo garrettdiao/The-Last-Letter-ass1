@@ -59,7 +59,7 @@ public class DoorbellEvent : MonoBehaviour
     IEnumerator PlayDoorbellSequence()
     {
         // 门铃响三次
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 6; i++)
         {
             sfxSource.PlayOneShot(doorbellSound);
             yield return new WaitForSeconds(1.2f);
