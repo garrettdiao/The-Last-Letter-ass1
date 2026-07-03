@@ -5,9 +5,12 @@ public class ClickableDoor : MonoBehaviour
     public Transform doorPivot;
     public Transform player;
 
-    public float interactDistance = 3f;
+    public float interactDistance = 5f;
     public float openAngle = -90f;
     public float openSpeed = 120f;
+
+    public AudioSource doorAudio;
+    public AudioClip openSound;
 
     private bool isOpen = false;
     private Quaternion closedRotation;
@@ -42,11 +45,11 @@ public class ClickableDoor : MonoBehaviour
         if (distance <= interactDistance)
         {
             isOpen = !isOpen;
-            Debug.Log("Door clicked");
-        }
-        else
-        {
-            Debug.Log("Too far");
+
+            if (doorAudio != null && openSound != null)
+            {
+                doorAudio.PlayOneShot(openSound);
+            }
         }
     }
 }
