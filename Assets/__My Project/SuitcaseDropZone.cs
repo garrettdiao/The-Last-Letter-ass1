@@ -1,60 +1,55 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
-
 public class SuitcaseDropZone : MonoBehaviour
 {
+    [Header("Suitcase")]
     public SuitcasePickup suitcase;
     public Transform placePoint;
-
+    [Header("Audio")]
     public AudioSource audioSource;
     public AudioClip womanVoice;
-
+    [Header("Story")]
     public DoorbellEvent doorbellEvent;
-
-    private bool playerInside = false;
     private bool hasTriggered = false;
-
-    void Update()
+    // 给 EZPZ Interactable 调用
+    public void TryPlaceSuitcase()
     {
-        if (!playerInside) return;
-        if (hasTriggered) return;
-        if (suitcase == null || !suitcase.IsPickedUp()) return;
-
-        if (Input.GetMouseButtonDown(0))
+        if (hasTriggered)
         {
-            hasTriggered = true;
-            StartCoroutine(PlaceSuitcase());
+            Debug.Log("The suitcase has already been placed.");
+            return;
         }
+        if (suitcase == null)
+        {
+            Debug.LogWarning("Suitcase is not assigned.");
+            return;
+        }
+        if (!suitcase.IsPickedUp())
+        {
+            Debug.Log("The player has not picked up the suitcase.");
+            return;
+        }
+        if (placePoint == null)
+        {
+            Debug.LogWarning("Place Point is not assigned.");
+            return;
+        }
+        hasTriggered = true;
+        StartCoroutine(PlaceSuitcase());
     }
-
-    IEnumerator PlaceSuitcase()
+    private IEnumerator PlaceSuitcase()
     {
         suitcase.PutDown(placePoint);
-
         if (doorbellEvent != null)
         {
             doorbellEvent.StopSuspenseMusic();
         }
-
         if (audioSource != null && womanVoice != null)
         {
             audioSource.clip = womanVoice;
             audioSource.Play();
             yield return new WaitWhile(() => audioSource.isPlaying);
         }
-
-        Debug.Log("Now player should go to the study.");
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-            playerInside = true;
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-            playerInside = false;
+        Debug.Log("Now the player should go to the study.");
     }
 }

@@ -1,55 +1,62 @@
-using UnityEngine;
-
+﻿using UnityEngine;
 public class ClickableDoor : MonoBehaviour
 {
+    [Header("Door")]
     public Transform doorPivot;
-    public Transform player;
-
-    public float interactDistance = 5f;
+    [Header("Movement")]
     public float openAngle = -90f;
     public float openSpeed = 120f;
-
+    [Header("Audio")]
     public AudioSource doorAudio;
     public AudioClip openSound;
-
     private bool isOpen = false;
     private Quaternion closedRotation;
     private Quaternion openRotation;
-
-    void Start()
+    private void Start()
     {
+        if (doorPivot == null)
+        {
+            Debug.LogWarning("Door Pivot is not assigned.");
+            return;
+        }
         closedRotation = doorPivot.rotation;
-
         openRotation = Quaternion.Euler(
             doorPivot.eulerAngles.x,
             doorPivot.eulerAngles.y + openAngle,
             doorPivot.eulerAngles.z
         );
     }
-
-    void Update()
+    private void Update()
     {
-        Quaternion targetRotation = isOpen ? openRotation : closedRotation;
-
+        if (doorPivot == null)
+            return;
+        Quaternion targetRotation = isOpen
+            ? openRotation
+            : closedRotation;
         doorPivot.rotation = Quaternion.RotateTowards(
             doorPivot.rotation,
             targetRotation,
             openSpeed * Time.deltaTime
         );
     }
-
-    void OnMouseDown()
+    // 给 EZPZ Interactable 调用
+    public void ToggleDoor()
     {
-        float distance = Vector3.Distance(player.position, transform.position);
-
-        if (distance <= interactDistance)
+        if (doorPivot == null)
         {
-            isOpen = !isOpen;
-
-            if (doorAudio != null && openSound != null)
-            {
-                doorAudio.PlayOneShot(openSound);
-            }
+            Debug.LogWarning("Door Pivot is not assigned.");
+            return;
         }
+        isOpen = !isOpen;
+        if (doorAudio != null && openSound != null)
+        {
+            doorAudio.PlayOneShot(openSound);
+        }
+        Debug.Log(isOpen ? "Door opened." : "Door closed.");
+    }
+    // 保留鼠标测试，可删除
+    private void OnMouseDown()
+    {
+        ToggleDoor();
     }
 }

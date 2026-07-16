@@ -33,6 +33,13 @@ public class DoorbellEvent : MonoBehaviour
 
     private bool hasTriggered = false;
 
+    public void TriggerDoorbell()
+    {
+        if (hasTriggered)
+            return;
+        hasTriggered = true;
+        StartCoroutine(PlayDoorbellSequence());
+    }
     void OnMouseDown()
     {
         if (hasTriggered) return;
@@ -45,11 +52,12 @@ public class DoorbellEvent : MonoBehaviour
 
         float distance = Vector3.Distance(player.position, transform.position);
 
+
         if (distance <= interactDistance)
         {
-            hasTriggered = true;
-            StartCoroutine(PlayDoorbellSequence());
+            TriggerDoorbell();
         }
+
         else
         {
             Debug.Log("Too far from doorbell.");
