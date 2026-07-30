@@ -26,6 +26,9 @@ public class DoorbellEvent : MonoBehaviour
     [Header("Door")]
     public GameObject frontDoor;
     private bool hasTriggered = false;
+    // 新增
+    private bool canChooseEntry = false;
+    private bool hasEnteredHouse = false;
     public void TriggerDoorbell()
     {
         if (hasTriggered)
@@ -35,17 +38,13 @@ public class DoorbellEvent : MonoBehaviour
     }
     void OnMouseDown()
     {
-        if (hasTriggered)
-            return;
+        if (hasTriggered) return;
         if (player == null)
         {
             Debug.Log("Player not assigned.");
             return;
         }
-        float distance = Vector3.Distance(
-            player.position,
-            transform.position
-        );
+        float distance = Vector3.Distance(player.position, transform.position);
         if (distance <= interactDistance)
         {
             TriggerDoorbell();
@@ -57,47 +56,29 @@ public class DoorbellEvent : MonoBehaviour
     }
     IEnumerator PlayDoorbellSequence()
     {
-        // 门铃响六次
+        // 门铃响6次
         for (int i = 0; i < 6; i++)
         {
-            if (sfxSource != null && doorbellSound != null)
-            {
-                sfxSource.PlayOneShot(doorbellSound);
-            }
+            sfxSource.PlayOneShot(doorbellSound);
             yield return new WaitForSeconds(1.2f);
         }
         // 女声1
-        if (voiceSource != null && femaleDoorbell1 != null)
-        {
-            voiceSource.clip = femaleDoorbell1;
-            voiceSource.Play();
-            yield return new WaitWhile(() => voiceSource.isPlaying);
-        }
+        voiceSource.clip = femaleDoorbell1;
+        voiceSource.Play();
+        yield return new WaitWhile(() => voiceSource.isPlaying);
         // 男声1
-        if (voiceSource != null && maleDoorbell1 != null)
-        {
-            voiceSource.clip = maleDoorbell1;
-            voiceSource.Play();
-            yield return new WaitWhile(() => voiceSource.isPlaying);
-        }
+        voiceSource.clip = maleDoorbell1;
+        voiceSource.Play();
+        yield return new WaitWhile(() => voiceSource.isPlaying);
         // 女声2
-        if (voiceSource != null && femaleDoorbell2 != null)
-        {
-            voiceSource.clip = femaleDoorbell2;
-            voiceSource.Play();
-            yield return new WaitWhile(() => voiceSource.isPlaying);
-        }
+        voiceSource.clip = femaleDoorbell2;
+        voiceSource.Play();
+        yield return new WaitWhile(() => voiceSource.isPlaying);
         // 尖叫
-        if (sfxSource != null && screamSound != null)
-        {
-            sfxSource.PlayOneShot(screamSound);
-        }
+        sfxSource.PlayOneShot(screamSound);
         yield return new WaitForSeconds(0.8f);
         // 玻璃破碎
-        if (sfxSource != null && glassBreakSound != null)
-        {
-            sfxSource.PlayOneShot(glassBreakSound);
-        }
+        sfxSource.PlayOneShot(glassBreakSound);
         yield return new WaitForSeconds(1f);
         // 停止环境音
         if (environmentSource != null)
@@ -107,21 +88,50 @@ public class DoorbellEvent : MonoBehaviour
         // 开始悬疑音乐
         PlaySuspenseMusic();
         // 男声2
-        if (voiceSource != null && maleDoorbell2 != null)
-        {
-            voiceSource.clip = maleDoorbell2;
-            voiceSource.Play();
-            yield return new WaitWhile(() => voiceSource.isPlaying);
-            // James 提示玩家寻找其他进入方式
-            voiceSource.clip = maleNeedAnotherWay;
-            voiceSource.Play();
-            yield return new WaitWhile(() => voiceSource.isPlaying);
-        }
-        // 门保持存在，等待玩家选择进入方式
-        Debug.Log(
-            "Doorbell sequence finished. Player can now choose how to enter."
-        );
+        voiceSource.clip = maleDoorbell2;
+        voiceSource.Play();
+        yield return new WaitWhile(() => voiceSource.isPlaying);
+        // James：需要寻找其它进入方式
+        voiceSource.clip = maleNeedAnotherWay;
+        voiceSource.Play();
+        yield return new WaitWhile(() => voiceSource.isPlaying);
+        // 开放进入方式
+        canChooseEntry = true;
+        Debug.Log("Doorbell sequence finished.");
     }
+    // ==============================
+    // Force Door（以后VR也调用这里）
+    // ==============================
+    public void TryForceDoor()
+    {
+        if (!canChooseEntry)
+        {
+            Debug.Log("Finish the doorbell event first.");
+            return;
+        }
+        if (hasEnteredHouse)
+        {
+            return;
+        }
+        StartCoroutine(ForceDoor());
+    }
+    IEnumerator ForceDoor()
+    {
+        hasEnteredHouse = true;
+        if (doorBreakSound != null)
+        {
+            sfxSource.PlayOneShot(doorBreakSound);
+        }
+        yield return new WaitForSeconds(0.5f);
+        if (frontDoor != null)
+        {
+            frontDoor.SetActive(false);
+        }
+        Debug.Log("Player entered by forcing the door.");
+    }
+    //==========================
+    // Music Functions
+    //==========================
     public void PlaySuspenseMusic()
     {
         if (musicSource == null || suspenseMusic == null)
