@@ -16819,6 +16819,10 @@ PrefabInstance:
       value: EZPZ Player XR - Dual Remote - No Teleport - With Jump
       objectReference: {fileID: 0}
     - target: {fileID: 584535489499400520, guid: 0b3aaf85dd52abf4d93da42878053ad7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 584535489499400520, guid: 0b3aaf85dd52abf4d93da42878053ad7, type: 3}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
@@ -16923,19 +16927,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4295872714225439192, guid: 0b3aaf85dd52abf4d93da42878053ad7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1482564079}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2680433250222999425, guid: 0b3aaf85dd52abf4d93da42878053ad7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 3421797427095693753, guid: 0b3aaf85dd52abf4d93da42878053ad7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 2381914008855821987, guid: 0b3aaf85dd52abf4d93da42878053ad7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 2117149292231657563, guid: 0b3aaf85dd52abf4d93da42878053ad7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b3aaf85dd52abf4d93da42878053ad7, type: 3}
 --- !u!1001 &879363789
 PrefabInstance:
@@ -22625,6 +22617,7 @@ MonoBehaviour:
   maleDoorbell1: {fileID: 8300000, guid: 7ed34361f0fc9084a9eff0cc88b45e7f, type: 3}
   femaleDoorbell2: {fileID: 8300000, guid: 115a65f149bc2d242afc995e6146eb17, type: 3}
   maleDoorbell2: {fileID: 8300000, guid: c66ba047dc89a934b8d4c8e3bbfc6d28, type: 3}
+  maleNeedAnotherWay: {fileID: 8300000, guid: fdf3ba38c354c95428db1e572973f580, type: 3}
   suspenseMusic: {fileID: 8300000, guid: cc2538700488e12419af9bf9935a90ba, type: 3}
   player: {fileID: 950089522}
   interactDistance: 8
@@ -24857,7 +24850,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1534723728633843283, guid: df63664dbdd376b4298726771ab129fa, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1986086630925795676, guid: df63664dbdd376b4298726771ab129fa, type: 3}
       propertyPath: m_Name

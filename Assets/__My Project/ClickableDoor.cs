@@ -54,9 +54,4 @@ public class ClickableDoor : MonoBehaviour
         }
         Debug.Log(isOpen ? "Door opened." : "Door closed.");
     }
-    // 保留鼠标测试，可删除
-    private void OnMouseDown()
-    {
-        ToggleDoor();
-    }
 }
