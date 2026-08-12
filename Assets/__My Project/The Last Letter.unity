@@ -13933,6 +13933,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 728886858}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &733623746
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 733623747}
+  m_Layer: 0
+  m_Name: FrontDoorPovit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &733623747
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733623746}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.454, y: 1.645, z: -23.738}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &734550287
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22739,6 +22770,7 @@ MonoBehaviour:
   screamSound: {fileID: 8300000, guid: e5e9431b9d26e4541848cf763330d0f1, type: 3}
   glassBreakSound: {fileID: 8300000, guid: 6fe77a3f76f6e3e44aac264be5c647b1, type: 3}
   doorBreakSound: {fileID: 8300000, guid: 43dbcef1f505a884cabbeec7292660cf, type: 3}
+  unlockSound: {fileID: 0}
   femaleDoorbell1: {fileID: 8300000, guid: 14de5de81fed0f14292bb6406e30f4bf, type: 3}
   maleDoorbell1: {fileID: 8300000, guid: 7ed34361f0fc9084a9eff0cc88b45e7f, type: 3}
   femaleDoorbell2: {fileID: 8300000, guid: 115a65f149bc2d242afc995e6146eb17, type: 3}
@@ -22748,6 +22780,9 @@ MonoBehaviour:
   player: {fileID: 950089522}
   interactDistance: 8
   frontDoor: {fileID: 1617883924}
+  frontDoorHinge: {fileID: 0}
+  openAngle: 90
+  openSpeed: 100
 --- !u!65 &1271594024
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23545,6 +23580,111 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c887da5f6e3230f4aa38afe5e8e30387, type: 3}
+--- !u!1 &1300481194 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3019568617730713240, guid: 5dd5a1ab6047d4848b7668734815016f, type: 3}
+  m_PrefabInstance: {fileID: 1511376292}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1300481198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300481194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021a70606049ebd4f90ad8b6735c07b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractableGeneral
+  onPrimaryInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1300481199}
+        m_TargetAssemblyTypeName: KeyPickup, Assembly-CSharp
+        m_MethodName: PickUpKey
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onPrimaryInteractLift:
+    m_PersistentCalls:
+      m_Calls: []
+  onSecondaryInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  onSecondaryInteractLift:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverExit:
+    m_PersistentCalls:
+      m_Calls: []
+  hoverText: 
+  customTouchDistance: -1
+  heldText: 
+  restrictSecondaryToHeldOnly: 0
+  customHoldDistance: -1
+  eventRelay: {fileID: 0}
+  onPrimaryInteractBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onPrimaryInteractLiftBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onSecondaryInteractBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onSecondaryInteractLiftBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverEnterBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverExitBackground:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1300481199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300481194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 594d87b2882d0764ba666edff10154d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KeyPickup
+  doorbellEvent: {fileID: 1271594023}
+--- !u!65 &1300481200
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300481194}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.058462236, y: 0.13057551, z: 0.005381247}
+  m_Center: {x: 0.00024982358, y: -0.0011685343, z: 2.422737e-11}
 --- !u!1001 &1302672427
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28099,12 +28239,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3019568617730713240, guid: 5dd5a1ab6047d4848b7668734815016f, type: 3}
       propertyPath: m_Name
-      value: Simple_02
+      value: Key
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3019568617730713240, guid: 5dd5a1ab6047d4848b7668734815016f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1300481200}
+    - targetCorrespondingSourceObject: {fileID: 3019568617730713240, guid: 5dd5a1ab6047d4848b7668734815016f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1300481199}
+    - targetCorrespondingSourceObject: {fileID: 3019568617730713240, guid: 5dd5a1ab6047d4848b7668734815016f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1300481198}
   m_SourcePrefab: {fileID: 100100000, guid: 5dd5a1ab6047d4848b7668734815016f, type: 3}
 --- !u!1 &1520062597
 GameObject:
@@ -30385,7 +30534,7 @@ Transform:
   m_GameObject: {fileID: 1617883924}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.428, y: 1.576, z: -23.789}
+  m_LocalPosition: {x: -3.4199998, y: 1.576, z: -23.789}
   m_LocalScale: {x: 1.9623003, y: 2.8450916, z: 0.13999327}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -38587,6 +38736,7 @@ SceneRoots:
   - {fileID: 207435779}
   - {fileID: 218544664}
   - {fileID: 1617883930}
+  - {fileID: 733623747}
   - {fileID: 762198977}
   - {fileID: 957315323}
   - {fileID: 1832902177}

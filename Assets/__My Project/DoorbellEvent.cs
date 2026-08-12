@@ -12,6 +12,7 @@ public class DoorbellEvent : MonoBehaviour
     public AudioClip screamSound;
     public AudioClip glassBreakSound;
     public AudioClip doorBreakSound;
+    public AudioClip unlockSound;
     [Header("Voice Clips")]
     public AudioClip femaleDoorbell1;
     public AudioClip maleDoorbell1;
@@ -23,12 +24,27 @@ public class DoorbellEvent : MonoBehaviour
     [Header("Interaction")]
     public Transform player;
     public float interactDistance = 5f;
-    [Header("Door")]
+    [Header("Front Door")]
     public GameObject frontDoor;
+    public Transform frontDoorHinge;
+    [Header("Key Door Settings")]
+    public float openAngle = 90f;
+    public float openSpeed = 100f;
     private bool hasTriggered = false;
-    // 新增
     private bool canChooseEntry = false;
     private bool hasEnteredHouse = false;
+    private bool hasKey = false;
+    // 钥匙系统
+    public void GiveKey()
+    {
+        hasKey = true;
+        Debug.Log("Player now has the spare key.");
+    }
+    public bool HasKey()
+    {
+        return hasKey;
+    }
+    // 门铃
     public void TriggerDoorbell()
     {
         if (hasTriggered)
@@ -38,13 +54,17 @@ public class DoorbellEvent : MonoBehaviour
     }
     void OnMouseDown()
     {
-        if (hasTriggered) return;
+        if (hasTriggered)
+            return;
         if (player == null)
         {
             Debug.Log("Player not assigned.");
             return;
         }
-        float distance = Vector3.Distance(player.position, transform.position);
+        float distance = Vector3.Distance(
+            player.position,
+            transform.position
+        );
         if (distance <= interactDistance)
         {
             TriggerDoorbell();
@@ -100,7 +120,8 @@ public class DoorbellEvent : MonoBehaviour
         Debug.Log("Doorbell sequence finished.");
     }
     // ==============================
-    // Force Door（以后VR也调用这里）
+    // Front Door Interaction
+    // EZPZ Desktop / VR 都调用这里
     // ==============================
     public void TryForceDoor()
     {
@@ -110,15 +131,23 @@ public class DoorbellEvent : MonoBehaviour
             return;
         }
         if (hasEnteredHouse)
-        {
             return;
+        // 有钥匙：正常开门
+        if (hasKey)
+        {
+            StartCoroutine(OpenDoorWithKey());
         }
-        StartCoroutine(ForceDoor());
+        // 没钥匙：维持原来的强行破门
+        else
+        {
+            StartCoroutine(ForceDoor());
+        }
     }
+    // 强行破门
     IEnumerator ForceDoor()
     {
         hasEnteredHouse = true;
-        if (doorBreakSound != null)
+        if (doorBreakSound != null && sfxSource != null)
         {
             sfxSource.PlayOneShot(doorBreakSound);
         }
@@ -129,9 +158,42 @@ public class DoorbellEvent : MonoBehaviour
         }
         Debug.Log("Player entered by forcing the door.");
     }
-    //==========================
+    // 用钥匙正常开门
+    IEnumerator OpenDoorWithKey()
+    {
+        hasEnteredHouse = true;
+        if (unlockSound != null && sfxSource != null)
+        {
+            sfxSource.PlayOneShot(unlockSound);
+        }
+        yield return new WaitForSeconds(0.3f);
+        if (frontDoor == null || frontDoorHinge == null)
+        {
+            Debug.LogWarning("Front Door or Front Door Hinge is not assigned.");
+            yield break;
+        }
+        float rotated = 0f;
+        while (rotated < Mathf.Abs(openAngle))
+        {
+            float step = openSpeed * Time.deltaTime;
+            if (rotated + step > Mathf.Abs(openAngle))
+            {
+                step = Mathf.Abs(openAngle) - rotated;
+            }
+            float direction = openAngle >= 0 ? 1f : -1f;
+            frontDoor.transform.RotateAround(
+                frontDoorHinge.position,
+                Vector3.up,
+                step * direction
+            );
+            rotated += step;
+            yield return null;
+        }
+        Debug.Log("Player opened the front door with the spare key.");
+    }
+    // ==========================
     // Music Functions
-    //==========================
+    // ==========================
     public void PlaySuspenseMusic()
     {
         if (musicSource == null || suspenseMusic == null)
