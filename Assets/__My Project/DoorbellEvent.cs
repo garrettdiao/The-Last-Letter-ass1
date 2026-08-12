@@ -34,11 +34,21 @@ public class DoorbellEvent : MonoBehaviour
     private bool canChooseEntry = false;
     private bool hasEnteredHouse = false;
     private bool hasKey = false;
+    private bool hasStone = false;
     // 钥匙系统
     public void GiveKey()
     {
         hasKey = true;
         Debug.Log("Player now has the spare key.");
+    }
+    public void GiveStone()
+    {
+        hasStone = true;
+        Debug.Log("Player now has the stone.");
+    }
+    public bool HasStone()
+    {
+        return hasStone;
     }
     public bool HasKey()
     {
