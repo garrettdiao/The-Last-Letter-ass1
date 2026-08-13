@@ -6,7 +6,7 @@ public class InvestigationObject : MonoBehaviour
     public AudioSource voiceSource;
     public AudioClip investigationVoice;
     [Header("Hover Settings")]
-    public float hoverDelay = 1.0f;
+    public float hoverDelay = 0.6f;
     private bool hasPlayed = false;
     private Coroutine hoverCoroutine;
     // EZPZ On Hover Enter 调用
