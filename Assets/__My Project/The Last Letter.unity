@@ -261,6 +261,154 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f84563c4522be5e4bbef79b6a74da743, type: 3}
+--- !u!1 &13556283
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 13556284}
+  - component: {fileID: 13556287}
+  - component: {fileID: 13556286}
+  - component: {fileID: 13556285}
+  m_Layer: 0
+  m_Name: KnifeInteractZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &13556284
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13556283}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.0215, z: 0.0013}
+  m_LocalScale: {x: 0.122093916, y: 0.15147, z: 0.3514104}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 222773655}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &13556285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13556283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021a70606049ebd4f90ad8b6735c07b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractableGeneral
+  onPrimaryInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  onPrimaryInteractLift:
+    m_PersistentCalls:
+      m_Calls: []
+  onSecondaryInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  onSecondaryInteractLift:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 13556286}
+        m_TargetAssemblyTypeName: InvestigationObject, Assembly-CSharp
+        m_MethodName: StartHover
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onHoverExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 13556286}
+        m_TargetAssemblyTypeName: InvestigationObject, Assembly-CSharp
+        m_MethodName: StartHover
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  hoverText: 
+  customTouchDistance: -1
+  heldText: 
+  restrictSecondaryToHeldOnly: 0
+  customHoldDistance: -1
+  eventRelay: {fileID: 0}
+  onPrimaryInteractBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onPrimaryInteractLiftBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onSecondaryInteractBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onSecondaryInteractLiftBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverEnterBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverExitBackground:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &13556286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13556283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 748e3229fc6ee3844add0a7d8572be44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InvestigationObject
+  voiceSource: {fileID: 1885003410}
+  investigationVoice: {fileID: 8300000, guid: a064c972572413941ac4e0294a85aa0a, type: 3}
+  hoverDelay: 1
+--- !u!65 &13556287
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13556283}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &16438633
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3778,6 +3926,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97229e82747352a43b48688ec573f8e4, type: 3}
+--- !u!4 &222773655 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9004903422020239192, guid: 52bd8d20a9ab4db458eae0438f87354d, type: 3}
+  m_PrefabInstance: {fileID: 770159809}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &225017752
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14782,11 +14935,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8627779092089365986, guid: 52bd8d20a9ab4db458eae0438f87354d, type: 3}
       propertyPath: m_Name
-      value: m9_bayonet_Standard
+      value: Knife
       objectReference: {fileID: 0}
     - target: {fileID: 9004903422020239192, guid: 52bd8d20a9ab4db458eae0438f87354d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.099
+      value: -7.7
       objectReference: {fileID: 0}
     - target: {fileID: 9004903422020239192, guid: 52bd8d20a9ab4db458eae0438f87354d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -14794,7 +14947,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9004903422020239192, guid: 52bd8d20a9ab4db458eae0438f87354d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -30.76227
+      value: -30.36
       objectReference: {fileID: 0}
     - target: {fileID: 9004903422020239192, guid: 52bd8d20a9ab4db458eae0438f87354d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -14826,7 +14979,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 9004903422020239192, guid: 52bd8d20a9ab4db458eae0438f87354d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 13556284}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52bd8d20a9ab4db458eae0438f87354d, type: 3}
 --- !u!1001 &773669390
@@ -18346,7 +18502,7 @@ Transform:
   m_GameObject: {fileID: 957315320}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.536, y: 0.56, z: -30.868}
+  m_LocalPosition: {x: -7.536, y: 0.56, z: -46.6}
   m_LocalScale: {x: 3.8196, y: 3.8196, z: 4.9878974}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22207,6 +22363,154 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ad2a2f20ebd1fa14db27af4487ceceda, type: 3}
   m_PrefabInstance: {fileID: 1217730020}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1226984038
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1226984042}
+  - component: {fileID: 1226984041}
+  - component: {fileID: 1226984040}
+  - component: {fileID: 1226984039}
+  m_Layer: 0
+  m_Name: BloodInteractZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1226984039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226984038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021a70606049ebd4f90ad8b6735c07b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractableGeneral
+  onPrimaryInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  onPrimaryInteractLift:
+    m_PersistentCalls:
+      m_Calls: []
+  onSecondaryInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  onSecondaryInteractLift:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1226984040}
+        m_TargetAssemblyTypeName: InvestigationObject, Assembly-CSharp
+        m_MethodName: StartHover
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onHoverExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1226984040}
+        m_TargetAssemblyTypeName: InvestigationObject, Assembly-CSharp
+        m_MethodName: StartHover
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  hoverText: 
+  customTouchDistance: -1
+  heldText: 
+  restrictSecondaryToHeldOnly: 0
+  customHoldDistance: -1
+  eventRelay: {fileID: 0}
+  onPrimaryInteractBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onPrimaryInteractLiftBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onSecondaryInteractBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onSecondaryInteractLiftBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverEnterBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverExitBackground:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1226984040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226984038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 748e3229fc6ee3844add0a7d8572be44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InvestigationObject
+  voiceSource: {fileID: 1885003410}
+  investigationVoice: {fileID: 8300000, guid: 249784c8c47935547a6ca4e16a8c0c1e, type: 3}
+  hoverDelay: 1
+--- !u!65 &1226984041
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226984038}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1226984042
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226984038}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.421, y: 0.131, z: -31.167}
+  m_LocalScale: {x: 0.69439363, y: 0.2881045, z: 0.5874451}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1228960250
 GameObject:
   m_ObjectHideFlags: 0
@@ -27257,7 +27561,7 @@ GameObject:
   - component: {fileID: 1431410321}
   - component: {fileID: 1431410320}
   m_Layer: 0
-  m_Name: Quad
+  m_Name: Blood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27271,12 +27575,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1431410318}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: 0.227, y: 1.319, z: -0.114}
-  m_LocalScale: {x: 1.4861, y: 1.4861, z: 1.4861}
+  m_LocalRotation: {x: 0.34040958, y: 0.61977524, z: -0.6197752, w: 0.34040964}
+  m_LocalPosition: {x: -7.1148486, y: 0.20666564, z: -31.546751}
+  m_LocalScale: {x: 2.0640442, y: 2.0640442, z: 2.0640442}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2073326496}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 180}
 --- !u!64 &1431410320
 MeshCollider:
@@ -33958,6 +34262,74 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f32dfddb033d3e40b5841bc53cc1689, type: 3}
+--- !u!1 &1828772098
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1828772101}
+  - component: {fileID: 1828772100}
+  - component: {fileID: 1828772099}
+  m_Layer: 0
+  m_Name: StoneVoiceTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1828772099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828772098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2cbb8f3198834146a1ffd16101aab0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StoneVoiceTrigger
+  voiceSource: {fileID: 1885003410}
+  stoneHintVoice: {fileID: 8300000, guid: 9fa59fd1c14a5144cbc2e8d623c14aa0, type: 3}
+--- !u!65 &1828772100
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828772098}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1828772101
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828772098}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.375, y: 0.67, z: -18.442}
+  m_LocalScale: {x: 4.0301476, y: 0.5227, z: 1.9150342}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1832288988
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34880,6 +35252,154 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7419a75ac6929e48842c0470aa44718, type: 3}
+--- !u!1 &1869853676
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1869853680}
+  - component: {fileID: 1869853679}
+  - component: {fileID: 1869853678}
+  - component: {fileID: 1869853677}
+  m_Layer: 0
+  m_Name: BodyInteractZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1869853677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869853676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021a70606049ebd4f90ad8b6735c07b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractableGeneral
+  onPrimaryInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  onPrimaryInteractLift:
+    m_PersistentCalls:
+      m_Calls: []
+  onSecondaryInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  onSecondaryInteractLift:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1869853678}
+        m_TargetAssemblyTypeName: InvestigationObject, Assembly-CSharp
+        m_MethodName: StartHover
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onHoverExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1869853678}
+        m_TargetAssemblyTypeName: InvestigationObject, Assembly-CSharp
+        m_MethodName: StartHover
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  hoverText: 
+  customTouchDistance: -1
+  heldText: 
+  restrictSecondaryToHeldOnly: 0
+  customHoldDistance: -1
+  eventRelay: {fileID: 0}
+  onPrimaryInteractBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onPrimaryInteractLiftBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onSecondaryInteractBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onSecondaryInteractLiftBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverEnterBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverExitBackground:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1869853678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869853676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 748e3229fc6ee3844add0a7d8572be44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InvestigationObject
+  voiceSource: {fileID: 1885003410}
+  investigationVoice: {fileID: 8300000, guid: 6d1e17e1d671ba041befc5492d6ce7d0, type: 3}
+  hoverDelay: 1
+--- !u!65 &1869853679
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869853676}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1869853680
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869853676}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: 0.000000014901161, w: 1}
+  m_LocalPosition: {x: -7.367, y: 0.20667028, z: -32.262}
+  m_LocalScale: {x: 1, y: 0.78649, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1871340085
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37712,7 +38232,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8628162677278332196, guid: 087c658005d534e9d820022711ea696d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.83
+      value: -8.92
       objectReference: {fileID: 0}
     - target: {fileID: 8628162677278332196, guid: 087c658005d534e9d820022711ea696d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -37752,17 +38272,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 8628162677278332196, guid: 087c658005d534e9d820022711ea696d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1431410319}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 087c658005d534e9d820022711ea696d, type: 3}
---- !u!4 &2073326496 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8628162677278332196, guid: 087c658005d534e9d820022711ea696d, type: 3}
-  m_PrefabInstance: {fileID: 2068333407}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2078316178
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39159,6 +39671,9 @@ SceneRoots:
   - {fileID: 814285067}
   - {fileID: 1335314147}
   - {fileID: 16438633}
+  - {fileID: 1226984042}
+  - {fileID: 1431410319}
+  - {fileID: 1869853680}
   - {fileID: 2068333407}
   - {fileID: 1930438748}
   - {fileID: 770159809}
@@ -39393,6 +39908,7 @@ SceneRoots:
   - {fileID: 1511376292}
   - {fileID: 1309879420}
   - {fileID: 1480780335}
+  - {fileID: 1828772101}
   - {fileID: 2014461087}
   - {fileID: 2034753762}
   - {fileID: 1152257607}
