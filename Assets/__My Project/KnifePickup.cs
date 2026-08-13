@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 public class KnifePickup : MonoBehaviour
 {
+    [Header("Pickup Voice")]
+    public AudioSource voiceSource;
+    public AudioClip pickupVoice;
     [Header("Knife Hold Point")]
     public Transform knifeHoldPoint;
     [Header("Optional Investigation Zone")]
@@ -32,5 +35,12 @@ public class KnifePickup : MonoBehaviour
             knifeInteractZone.SetActive(false);
         }
         Debug.Log("Knife picked up.");
+        if (voiceSource != null && pickupVoice != null)
+        {
+            voiceSource.Stop();
+            voiceSource.clip = pickupVoice;
+            voiceSource.Play();
+        }
     }
+
 }

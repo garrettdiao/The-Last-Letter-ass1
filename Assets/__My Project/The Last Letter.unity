@@ -289,7 +289,7 @@ Transform:
   m_GameObject: {fileID: 13556283}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.7, y: 0.1945, z: -30.3587}
+  m_LocalPosition: {x: -8.109, y: 0.1945, z: -31.131}
   m_LocalScale: {x: 0.122093916, y: 0.15147, z: 0.3514104}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -309,7 +309,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteractableGeneral
   onPrimaryInteract:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1497176454}
+        m_TargetAssemblyTypeName: KnifePickup, Assembly-CSharp
+        m_MethodName: PickUpKnife
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onPrimaryInteractLift:
     m_PersistentCalls:
       m_Calls: []
@@ -15112,7 +15124,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9004903422020239192, guid: 52bd8d20a9ab4db458eae0438f87354d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.7
+      value: -8.102
       objectReference: {fileID: 0}
     - target: {fileID: 9004903422020239192, guid: 52bd8d20a9ab4db458eae0438f87354d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -15120,7 +15132,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9004903422020239192, guid: 52bd8d20a9ab4db458eae0438f87354d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -30.36
+      value: -31.122
       objectReference: {fileID: 0}
     - target: {fileID: 9004903422020239192, guid: 52bd8d20a9ab4db458eae0438f87354d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -15154,6 +15166,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8627779092089365986, guid: 52bd8d20a9ab4db458eae0438f87354d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1497176454}
     - targetCorrespondingSourceObject: {fileID: 8627779092089365986, guid: 52bd8d20a9ab4db458eae0438f87354d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1497176453}
@@ -21062,7 +21077,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f023a5dda8b2af84c979aa2da6d1cab3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -32.16
+      value: -32.563
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f023a5dda8b2af84c979aa2da6d1cab3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -28731,7 +28746,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteractableGeneral
   onPrimaryInteract:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1497176454}
+        m_TargetAssemblyTypeName: KnifePickup, Assembly-CSharp
+        m_MethodName: PickUpKnife
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onPrimaryInteractLift:
     m_PersistentCalls:
       m_Calls: []
@@ -28771,6 +28798,22 @@ MonoBehaviour:
   onHoverExitBackground:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1497176454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497176451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0a7a9d54fbdd474083825016960c1e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KnifePickup
+  voiceSource: {fileID: 1885003410}
+  pickupVoice: {fileID: 8300000, guid: 5c692f14b73d3e64582d4ab713c4c054, type: 3}
+  knifeHoldPoint: {fileID: 1510256667}
+  knifeInteractZone: {fileID: 13556283}
 --- !u!1001 &1507953737
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34594,6 +34637,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WomanTrigger
   audioSource: {fileID: 1885003410}
   womanVoice: {fileID: 8300000, guid: 753c3314294196d4ca7bc7d5ce2ebf1a, type: 3}
+  knifePickup: {fileID: 1497176454}
+  jamesConfrontVoice: {fileID: 8300000, guid: 6abf81678265c1f4d9f28768c6160610, type: 3}
+  womanConfrontVoice: {fileID: 8300000, guid: ffb3815ede9cea14eae67ffb49d78db5, type: 3}
 --- !u!65 &1832902176
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -34624,7 +34670,7 @@ Transform:
   m_GameObject: {fileID: 1832902174}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.94, y: 7.73, z: -39.52}
+  m_LocalPosition: {x: 3.94, y: 7.73, z: -38.72}
   m_LocalScale: {x: 8.090523, y: 3.4484, z: 5.073976}
   m_ConstrainProportionsScale: 0
   m_Children: []
