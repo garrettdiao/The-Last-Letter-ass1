@@ -16,6 +16,10 @@ public class IDCardInvestigation : MonoBehaviour
     private bool noticePlayed = false;
     private bool hasRevealed = false;
     private Coroutine hoverCoroutine;
+    public bool HasRevealed
+    {
+        get { return hasRevealed; }
+    }
     // EZPZ Hover Enter
     public void StartHover()
     {
