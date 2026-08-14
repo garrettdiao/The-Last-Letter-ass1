@@ -86,14 +86,10 @@ public class FlipPhoto : MonoBehaviour
             yield return new WaitWhile(
                 () => voiceSource.isPlaying
             );
+
+            Debug.Log(
+                "Photo route finished. Player can now call the police."
+            );
         }
-        // 决定报警以后停止悬疑音乐
-        if (doorbellEvent != null)
-        {
-            doorbellEvent.StopSuspenseMusic();
-        }
-        Debug.Log(
-            "Photo route finished. Player can now call the police."
-        );
     }
 }

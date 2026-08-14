@@ -4837,6 +4837,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bf92dba2db020b4cafbf8fea1c11661, type: 3}
+--- !u!1 &265550795
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 265550796}
+  m_Layer: 0
+  m_Name: PhoneldPoint_PC
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &265550796
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265550795}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.345, y: 0, z: 0.843}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2003802177}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &271479909
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13911,19 +13942,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6512534c72faedd458036bbb59d099c3, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5112814
+      value: 1.4177784
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6512534c72faedd458036bbb59d099c3, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5112814
+      value: 1.4177784
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6512534c72faedd458036bbb59d099c3, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.5112814
+      value: 1.4177784
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6512534c72faedd458036bbb59d099c3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.704
+      value: 5.98
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6512534c72faedd458036bbb59d099c3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -17374,6 +17405,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4295872714225439192, guid: 0b3aaf85dd52abf4d93da42878053ad7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1482564079}
+    - targetCorrespondingSourceObject: {fileID: 4295872714225439192, guid: 0b3aaf85dd52abf4d93da42878053ad7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1701888568}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b3aaf85dd52abf4d93da42878053ad7, type: 3}
 --- !u!1001 &879363789
@@ -19136,6 +19170,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97229e82747352a43b48688ec573f8e4, type: 3}
+--- !u!4 &972676790 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 6512534c72faedd458036bbb59d099c3, type: 3}
+  m_PrefabInstance: {fileID: 709003670}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &979628791
 GameObject:
   m_ObjectHideFlags: 0
@@ -26001,6 +26040,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 625460372771822230, guid: df63664dbdd376b4298726771ab129fa, type: 3}
       insertIndex: -1
       addedObject: {fileID: 836623771}
+    - targetCorrespondingSourceObject: {fileID: 625460372771822230, guid: df63664dbdd376b4298726771ab129fa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 265550796}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df63664dbdd376b4298726771ab129fa, type: 3}
 --- !u!1 &1355144599
@@ -28579,6 +28621,155 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a1cade8f3785a5498483caf954be128, type: 3}
+--- !u!1 &1482197626
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1482197630}
+  - component: {fileID: 1482197629}
+  - component: {fileID: 1482197628}
+  - component: {fileID: 1482197627}
+  m_Layer: 0
+  m_Name: PhoneInteractZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1482197627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482197626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021a70606049ebd4f90ad8b6735c07b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractableGeneral
+  onPrimaryInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1482197628}
+        m_TargetAssemblyTypeName: PhoneCall, Assembly-CSharp
+        m_MethodName: TryUsePhone
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onPrimaryInteractLift:
+    m_PersistentCalls:
+      m_Calls: []
+  onSecondaryInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  onSecondaryInteractLift:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverExit:
+    m_PersistentCalls:
+      m_Calls: []
+  hoverText: 
+  customTouchDistance: -1
+  heldText: 
+  restrictSecondaryToHeldOnly: 0
+  customHoldDistance: -1
+  eventRelay: {fileID: 0}
+  onPrimaryInteractBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onPrimaryInteractLiftBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onSecondaryInteractBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onSecondaryInteractLiftBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverEnterBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverExitBackground:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1482197628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482197626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5b259bd8ed0f3469885af5b3a01a9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PhoneCall
+  phoneObject: {fileID: 972676790}
+  idCardInvestigation: {fileID: 536546192}
+  flipPhoto: {fileID: 1480216942}
+  pcHoldPoint: {fileID: 265550796}
+  vrHoldPoint: {fileID: 1701888568}
+  useVR: 0
+  voiceSource: {fileID: 1885003410}
+  sfxSource: {fileID: 775048396}
+  callSound: {fileID: 8300000, guid: 67a8ec6dbdf337d4eb433d9045496035, type: 3}
+  policeAnswerVoice: {fileID: 8300000, guid: 8a11a94a2680bd541bb314705a52c3fb, type: 3}
+  jamesReportVoice: {fileID: 8300000, guid: 23c2847e288f17f42a2a86e2449d162c, type: 3}
+  policeResponseVoice: {fileID: 8300000, guid: 0e8ffe891bf31b24ba53757b06869294, type: 3}
+  jamesFinalVoice: {fileID: 8300000, guid: f8df1ff57f389ed44a4665588761fdae, type: 3}
+  pauseBetweenVoices: 0.3
+  pauseBeforeFinalVoice: 0.7
+  phoneInteractZone: {fileID: 1482197626}
+--- !u!65 &1482197629
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482197626}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1482197630
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482197626}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.981, y: 1.408, z: -26.103}
+  m_LocalScale: {x: 0.24299675, y: 0.10027492, z: 0.20813426}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1482564078
 GameObject:
   m_ObjectHideFlags: 0
@@ -32780,6 +32971,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8cb6d953267a0884288df6a274f09c40, type: 3}
+--- !u!1 &1701888567
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1701888568}
+  m_Layer: 0
+  m_Name: PhoneHoldPoint_VR
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1701888568
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701888567}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1990825062}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1702788942
 GameObject:
   m_ObjectHideFlags: 0
@@ -39989,6 +40211,7 @@ SceneRoots:
   - {fileID: 13556284}
   - {fileID: 770159809}
   - {fileID: 1124503166}
+  - {fileID: 1482197630}
   - {fileID: 709003670}
   - {fileID: 263220289}
   - {fileID: 862974372}
