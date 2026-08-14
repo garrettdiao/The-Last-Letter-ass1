@@ -102,6 +102,8 @@ public class WomanTrigger : MonoBehaviour
 
     public AudioClip arrestSirenSound;
 
+    public AudioClip jamesAmbulanceVoice;
+
 
     // =====================================================
 
@@ -786,36 +788,28 @@ public class WomanTrigger : MonoBehaviour
 
         // -------------------------------------------------
 
+        // 警笛突然响起
         if (sfxSource != null &&
-
-            arrestSirenSound != null)
-
+           arrestSirenSound != null)
         {
-
-            sfxSource.PlayOneShot(
-
-                arrestSirenSound
-
-            );
-
+            sfxSource.PlayOneShot(arrestSirenSound);
         }
-
-
+        // 给 James 一点反应时间
+        yield return new WaitForSeconds(1.0f);
+        // James 假装说救护车到了
+        if (audioSource != null &&
+           jamesAmbulanceVoice != null)
+        {
+            audioSource.Stop();
+            audioSource.clip = jamesAmbulanceVoice;
+            audioSource.Play();
+            yield return new WaitWhile(
+                () => audioSource.isPlaying
+            );
+        }
         Debug.Log(
-
-            "NO path reached police siren."
-
+           "James convinced the woman to go outside."
         );
-
-
-        // 下一步从这里继续：
-
-        // James:
-
-        // "Sounds like the ambulance is here.
-
-        // Come on, let's go."
-
     }
 
 

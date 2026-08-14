@@ -1,44 +1,87 @@
 ﻿using UnityEngine;
-using UnityEngine;
 public class BriefcaseChoiceManager : MonoBehaviour
 {
     [Header("Story")]
     public WomanTrigger womanTrigger;
+    [Header("Choice Group")]
+    public GameObject choiceGroup;
     private bool choiceMade = false;
-    public bool ChoseYes { get; private set; } = false;
-    public bool ChoseNo { get; private set; } = false;
+    public bool ChoseYes { get; private set; }
+    public bool ChoseNo { get; private set; }
 
-    public void ChooseYes()
+    private void OnEnable()
     {
-        if (choiceMade)
-            return;
-        choiceMade = true;
-        ChoseYes = true;
-        Debug.Log(
-            "Player chose YES."
-        );
-        // 隐藏整个 YES / NO 选择组
-        gameObject.SetActive(false);
-        if (womanTrigger != null)
-        {
-            womanTrigger.TriggerBriefcaseYesChoice();
-        }
+        // 每次选择界面重新出现时允许重新选择
+        choiceMade = false;
+        ChoseYes = false;
+        ChoseNo = false;
+        Debug.Log("Briefcase Choice Manager ENABLED and ready.");
     }
 
-    public void ChooseNo()
+    // =====================================================
+    // YES
+    // =====================================================
+    public void ChooseYes()
     {
+        Debug.Log(">>> YES BUTTON CLICK RECEIVED <<<");
         if (choiceMade)
+        {
+            Debug.LogWarning("YES ignored because choiceMade is already TRUE.");
             return;
+        }
         choiceMade = true;
-        ChoseNo = true;
-        Debug.Log(
-            "Player chose NO."
-        );
-        // 隐藏整个 YES / NO 选择组
-        gameObject.SetActive(false);
+        ChoseYes = true;
         if (womanTrigger != null)
         {
+            Debug.Log("Sending YES to WomanTrigger.");
+            womanTrigger.TriggerBriefcaseYesChoice();
+        }
+        else
+        {
+            Debug.LogError("WomanTrigger is NOT assigned!");
+        }
+        HideChoices();
+    }
+
+    // =====================================================
+    // NO
+    // =====================================================
+    public void ChooseNo()
+    {
+        Debug.Log(">>> NO BUTTON CLICK RECEIVED <<<");
+        if (choiceMade)
+        {
+            Debug.LogWarning("NO ignored because choiceMade is already TRUE.");
+            return;
+        }
+        choiceMade = true;
+        ChoseNo = true;
+        if (womanTrigger != null)
+        {
+            Debug.Log("Sending NO to WomanTrigger.");
             womanTrigger.TriggerBriefcaseNoChoice();
+        }
+        else
+        {
+            Debug.LogError("WomanTrigger is NOT assigned!");
+        }
+        HideChoices();
+    }
+
+    // =====================================================
+    // Hide Choices
+    // =====================================================
+    private void HideChoices()
+    {
+        if (choiceGroup != null)
+        {
+            choiceGroup.SetActive(false);
+        }
+        else
+        {
+            Debug.LogWarning(
+                "Choice Group is empty. Choices were not hidden."
+            );
         }
     }
 }
