@@ -2010,6 +2010,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3475b932e25f196499c2c98f6fc6367a, type: 3}
+--- !u!114 &112916690 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1956383702197125241, guid: 0b3aaf85dd52abf4d93da42878053ad7, type: 3}
+  m_PrefabInstance: {fileID: 874250624}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0cb9aa70a22847b5925ee5f067c10a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &125305542
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34433,6 +34444,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74ffa2481d459d045b28b7339dbf8117, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WomanTrigger
+  finalHitSound: {fileID: 8300000, guid: 64d119e579ea23c46a86f592d38ab835, type: 3}
+  footstepsSound: {fileID: 8300000, guid: c16d0d0d41f5576489eb12e1061c2dda, type: 3}
+  policeSirenSound: {fileID: 8300000, guid: 4caf10f941fe9f442a55e81e5a9ff09c, type: 3}
+  policeVoice: {fileID: 8300000, guid: 3037eacc3d8fb6a4d92bff7fb79f3b44, type: 3}
+  jamesFinalVoice: {fileID: 8300000, guid: debf73604852ecb4e8472b2d04aa6d62, type: 3}
+  fadeToBlackDuration: 2
+  fullBlackDelay: 5
+  jamesFinalDelay: 2
+  doorbellEvent: {fileID: 1271594023}
   audioSource: {fileID: 1885003410}
   womanVoice: {fileID: 8300000, guid: 753c3314294196d4ca7bc7d5ce2ebf1a, type: 3}
   knifePickup: {fileID: 1497176454}
@@ -34440,6 +34460,10 @@ MonoBehaviour:
   womanConfrontVoice: {fileID: 8300000, guid: 75a4bc8c792f92f4698510465eea8ecc, type: 3}
   sfxSource: {fileID: 775048396}
   fightSound: {fileID: 8300000, guid: 74637aa6fc75a1641918f45a5f63e256, type: 3}
+  womanAfterFightVoice: {fileID: 8300000, guid: 4d6fd9beff60a6649bdf16196d15c791, type: 3}
+  wakeUpDelay: 1
+  pcController: {fileID: 2064108372}
+  vrMovementScript: {fileID: 112916690}
   pcBlackScreen: {fileID: 836623770}
   vrBlackScreen: {fileID: 1365708639}
   bodyInteractZone: {fileID: 1869853676}
@@ -38236,6 +38260,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6306506884801380406, guid: e43b37b3398501541908eefd5c8bff8c, type: 3}
   m_PrefabInstance: {fileID: 1152257607}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2064108372 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 776798722794610808, guid: df63664dbdd376b4298726771ab129fa, type: 3}
+  m_PrefabInstance: {fileID: 1352130223}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55919ac34a26952479f3fc91f777b2fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2068333407
 PrefabInstance:
   m_ObjectHideFlags: 0

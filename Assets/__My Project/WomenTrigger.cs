@@ -1,10 +1,22 @@
 ﻿using UnityEngine;
 
 using System.Collections;
+using StarterAssets;
 
 public class WomanTrigger : MonoBehaviour
 
 {
+    [Header("Ending Sequence")]
+    public AudioClip finalHitSound;
+    public AudioClip footstepsSound;
+    public AudioClip policeSirenSound;
+    public AudioClip policeVoice;
+    public AudioClip jamesFinalVoice;
+    public float fadeToBlackDuration = 2.0f;
+    public float fullBlackDelay = 5.0f;
+    public float jamesFinalDelay = 2.0f;
+    [Header("Story Music")]
+    public DoorbellEvent doorbellEvent;
 
     [Header("Normal Path")]
 
@@ -24,7 +36,15 @@ public class WomanTrigger : MonoBehaviour
     [Header("Fight Sequence")]
     public AudioSource sfxSource;
     public AudioClip fightSound;
-    [Header("Black Screens")]
+    [Header("After Fight")]
+    public AudioClip womanAfterFightVoice;
+    public float wakeUpDelay = 1.0f;
+
+    [Header("Player Movement Lock")]
+    public FirstPersonController pcController;
+    public Behaviour vrMovementScript;
+
+        [Header("Black Screens")]
     public GameObject pcBlackScreen;
     public GameObject vrBlackScreen;
     [Header("Investigation Zones")]
@@ -154,6 +174,43 @@ public class WomanTrigger : MonoBehaviour
         Debug.Log("Normal woman dialogue triggered.");
 
     }
+    private void HideBlackScreens()
+    {
+        if (pcBlackScreen != null)
+        {
+            pcBlackScreen.SetActive(false);
+        }
+        if (vrBlackScreen != null)
+        {
+            vrBlackScreen.SetActive(false);
+        }
+    }
+    private void LockPlayerMovement()
+    {
+        // PC：只锁移动，不锁鼠标视角
+        if (pcController != null)
+        {
+            pcController.MoveSpeed = 0f;
+            pcController.SprintSpeed = 0f;
+        }
+        // VR 暂时继续关闭移动组件
+        if (vrMovementScript != null)
+        {
+            vrMovementScript.enabled = false;
+        }
+        Debug.Log("Player movement locked, look remains active.");
+    }
+    private void ShowBlackScreens()
+    {
+        if (pcBlackScreen != null)
+        {
+            pcBlackScreen.SetActive(true);
+        }
+        if (vrBlackScreen != null)
+        {
+            vrBlackScreen.SetActive(true);
+        }
+    }
     private IEnumerator PlayKnifePath()
     {
         // James 对质
@@ -172,7 +229,7 @@ public class WomanTrigger : MonoBehaviour
             audioSource.Play();
             yield return new WaitWhile(() => audioSource.isPlaying);
         }
-        // 稍微停顿一下
+        // 停顿
         yield return new WaitForSeconds(0.5f);
         // PC 黑屏
         if (pcBlackScreen != null)
@@ -184,11 +241,90 @@ public class WomanTrigger : MonoBehaviour
         {
             vrBlackScreen.SetActive(true);
         }
-        // 播放打斗声
+        // 打斗声
         if (sfxSource != null && fightSound != null)
         {
             sfxSource.PlayOneShot(fightSound);
+            yield return new WaitForSeconds(fightSound.length);
         }
-        Debug.Log("Fight sequence started.");
+        // 打斗结束后停止悬疑音乐
+        if (doorbellEvent != null)
+        {
+            doorbellEvent.StopSuspenseMusic();
+        }
+        Debug.Log("Fight finished. Suspense music stopped.");
+        // 打斗结束后继续保持黑屏一小会
+        yield return new WaitForSeconds(wakeUpDelay);
+        // 恢复画面
+        HideBlackScreens();
+        Debug.Log("Player wakes up.");
+        // 恢复画面
+        HideBlackScreens();
+        // 玩家醒来，但已经受伤，不能移动
+        LockPlayerMovement();
+        Debug.Log("Player wakes up and movement is locked.");
+        // 稍微停顿，让玩家先看到女人
+        yield return new WaitForSeconds(1.0f);
+        // 女人说战斗后的台词
+        if (audioSource != null && womanAfterFightVoice != null)
+        {
+            audioSource.Stop();
+            audioSource.clip = womanAfterFightVoice;
+            audioSource.Play();
+            yield return new WaitWhile(() => audioSource.isPlaying);
+        }
+        Debug.Log("Woman after-fight dialogue finished.");
+        // 女人说完后，停顿一下
+        yield return new WaitForSeconds(0.5f);
+        // 最后一击声音
+        if (sfxSource != null && finalHitSound != null)
+        {
+            sfxSource.PlayOneShot(finalHitSound);
+        }
+        // 模拟玩家逐渐失去意识
+        yield return new WaitForSeconds(fadeToBlackDuration);
+        // 完全黑屏
+        ShowBlackScreens();
+        Debug.Log("Player lost consciousness.");
+        // 完全黑屏保持 5 秒
+        yield return new WaitForSeconds(fullBlackDelay);
+        // 脚步声 + 警笛声同时开始
+        if (sfxSource != null)
+        {
+            if (footstepsSound != null)
+            {
+                sfxSource.PlayOneShot(footstepsSound);
+            }
+            if (policeSirenSound != null)
+            {
+                sfxSource.PlayOneShot(policeSirenSound);
+            }
+        }
+        // 等待脚步声结束
+        if (footstepsSound != null)
+        {
+            yield return new WaitForSeconds(footstepsSound.length);
+       
     }
+        // 警察声音
+        if (audioSource != null && policeVoice != null)
+        {
+            audioSource.Stop();
+            audioSource.clip = policeVoice;
+            audioSource.Play();
+            yield return new WaitWhile(() => audioSource.isPlaying);
+        }
+        // 警察说完后再等 2 秒
+        yield return new WaitForSeconds(jamesFinalDelay);
+        // James 最后的 Resolution 台词
+        if (audioSource != null && jamesFinalVoice != null)
+        {
+            audioSource.Stop();
+            audioSource.clip = jamesFinalVoice;
+            audioSource.Play();
+            yield return new WaitWhile(() => audioSource.isPlaying);
+        }
+        Debug.Log("Knife path ending finished.");
+    }
+
 }
