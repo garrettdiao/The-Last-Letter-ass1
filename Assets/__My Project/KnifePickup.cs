@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
+
 public class KnifePickup : MonoBehaviour
 {
+
     [Header("Pickup Voice")]
     public AudioSource voiceSource;
     public AudioClip pickupVoice;
